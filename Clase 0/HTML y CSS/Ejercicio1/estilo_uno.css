@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    background-color: #989898;
+}
+
+#parte_superior{
+    height: 200px;
+    background-color: black;
+}
+
+#parte_media{
+    height: 50px;
+    background-color: #fe3265;
+}
+
+li{
+    padding-left: 25px;
+    padding-top: 25px;
+    font-family: Calibri Light;
+}

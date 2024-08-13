@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    background-color: #989898;
+}
+
+#parte_superior{
+    height: 120px;
+    background-image: url("patron.png");
+}
+
+#lateral{
+    width: 250px;
+    height: 100%;
+    float: left;
+    background-color: #cccccc;
+}
+
+#parte_media{
+    height: 600px;
+    background-color: #ff404e;
+}
+
+.separador{
+    height: 35px;
+    background-color: #012d41;
+}
