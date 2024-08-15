@@ -128,6 +128,14 @@
                 actualizarEstilo();
             }
 
+            function enviarFormulario(){
+                // Verificar si el formulario es válido
+                const form = document.getElementById("formulario");
+                if (form.checkValidity()) {
+                    alert('Formulario enviado correctamente!\n(De mentirita)');
+                }
+            }
+
             actualizarEstilo();
 
             console.log("Saludos navegante!");
@@ -137,7 +145,7 @@
         <h1>Formulario de Datos Personales</h1>
         <div id="div_general">
             <div id="div_formulario">
-                <form>
+                <form id="formulario">
                     <label for="nombre">Nombre:</label><br>
                     <input type="text" id="nombre" name="nombre" autocomplete="given-name" required><br><br>
                     <label for="apellido">Apellido:</label><br>
@@ -149,7 +157,7 @@
                     <label for="pais">País de Residencia:</label><br>
                     <input type="text" id="pais" name="pais" autocomplete="country-name" required><br><br>
                     
-                    <input type="submit" id="boton_enviar" value="Enviar">
+                    <input type="submit" id="boton_enviar" value="Enviar" onclick="enviarFormulario()">
                 </form>
             </div>
             <div id="div_botones">
