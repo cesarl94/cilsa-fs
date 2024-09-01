@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio Clase 3</title>
+        <style>
+            :root {
+                --main-background-color: #eff1ee;
+                --main-color: #000;
+                --title-color: #333;
+                --border-color: #888;
+                --form-background-color: #fdfffc;
+                --input-background-color: #fff;
+                --input-color: #000;
+                --boton-enviar-background-color: #107bfe;
+                --boton-enviar-color: #fff;
+                --boton-estilo-background-color: #efefef;
+            }
+            
+            html, body{
+                background-color: var(--main-background-color);
+                color: var(--main-color);
+                font-family: Calibri Light;
+                letter-spacing: -1px; /* Reduce el espacio entre las letras */
+            }
+
+            h1{
+                text-align: center;
+                font-family: Arial;
+                color: var(--title-color);
+            }
+
+            form{
+                background-color: var(--form-background-color);
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                padding: 25px;
+            }
+
+            label{
+                font-size: 20px;
+            }
+
+            #div_general{
+                flex-direction: column;
+            }
+
+            #div_formulario{
+                display: flex;
+                justify-content: center;
+            }
+            
+            #div_botones{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                transform: translateY(20px);
+            }
+
+            input{
+                width: 300px;
+                height: 30px;
+                font-size: 18px;
+                border-radius: 8px;
+                border: 1px solid var(--border-color);
+                background-color: var(--input-background-color);
+                color: var(--input-color);
+            }
+            
+            #boton_enviar{
+                width: 250px;
+                height: 30px;
+                font-size: 20px;
+                background-color: var(--boton-enviar-background-color);
+                color: var(--boton-enviar-color);
+                display: block; /* Asegura que el botón se comporte como un bloque */
+                margin: 0 auto; /* Centra el botón horizontalmente */
+            }
+
+            /* Estado highlight (cuando el mouse está sobre el botón) */
+            #boton_enviar:hover {
+                filter: brightness(0.9);
+            }
+
+            /* Estado pressed (cuando el botón está siendo presionado) */
+            #boton_enviar:active {
+                filter: brightness(0.8);
+                transform: scale(0.98);
+            }
+
+            #boton_estilo{
+                width: auto;
+                background-color: var(--boton-estilo-background-color);
+                color: #000;
+            }
+
+            /* Estado highlight (cuando el mouse está sobre el botón) */
+            #boton_estilo:hover {
+                filter: brightness(0.9);
+            }
+            
+            /* Estado pressed (cuando el botón está siendo presionado) */
+            #boton_estilo:active {
+                filter: brightness(0.8);
+                transform: scale(0.98); 
+            }
+
+            #boton_no_presionar{
+                width: auto;
+                background-color: #ff0000;
+                color: #000;
+            }
+
+            /* Estado highlight (cuando el mouse está sobre el botón) */
+            #boton_no_presionar:hover {
+                filter: brightness(0.9);
+            }
+            
+            /* Estado pressed (cuando el botón está siendo presionado) */
+            #boton_no_presionar:active {
+                filter: brightness(0.8);
+                transform: scale(0.98); 
+            }
+        </style>
+
+        <script>
+            let estiloOscuro = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            function actualizarEstilo() {
+                document.documentElement.style.setProperty('--main-background-color', estiloOscuro ? '#000100' : '#eff1ee');
+                document.documentElement.style.setProperty('--main-color', estiloOscuro ? '#fff' : '#000');
+                document.documentElement.style.setProperty('--title-color', estiloOscuro ? '#faf3e2' : '#333');
+                document.documentElement.style.setProperty('--border-color', estiloOscuro ? '#555' : '#888');
+                document.documentElement.style.setProperty('--form-background-color', estiloOscuro ? '#242121' : '#fdfffc');
+                document.documentElement.style.setProperty('--input-background-color', estiloOscuro ? '#323431' : '#fff');
+                document.documentElement.style.setProperty('--input-color', estiloOscuro ? '#fff' : '#000');
+                document.documentElement.style.setProperty('--boton-enviar-background-color', estiloOscuro ? '#ffd700' : '#107bfe');
+                document.documentElement.style.setProperty('--boton-enviar-color', estiloOscuro ? '#000' : '#fff');
+                document.documentElement.style.setProperty('--boton-estilo-background-color', estiloOscuro ? '#ffd700' : '#efefef');
+            }
+
+            function cambiarEstilo() {
+                estiloOscuro = !estiloOscuro;
+                actualizarEstilo();
+            }
+
+            function noPresionar(){
+                alert('Que desobediente!');
+            }
+
+            function enviarFormulario(){
+                // Verificar si el formulario es válido
+                const form = document.getElementById("formulario");
+                if (form.checkValidity()) {
+                    alert('Formulario enviado correctamente!\n(De mentirita)');
+                }
+            }
+
+            actualizarEstilo();
+
+            console.log("Saludos navegante!");
+        </script>
+    </head>
+    <body>
+        <h1>Formulario de Datos Personales</h1>
+        <div id="div_general">
+            <div id="div_formulario">
+                <form id="formulario">
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" autocomplete="given-name" required><br><br>
+                    <label for="apellido">Apellido:</label><br>
+                    <input type="text" id="apellido" name="apellido" autocomplete="family-name" required><br><br>
+                    <label for="correo">Email:</label><br>
+                    <input type="email" id="correo" name="correo" autocomplete="email" required><br><br>
+                    <label for="nacimiento">Fecha de Nacimiento:</label><br>
+                    <input type="date" id="nacimiento" name="nacimiento" required><br><br>
+                    <label for="pais">País de Residencia:</label><br>
+                    <input type="text" id="pais" name="pais" autocomplete="country-name" required><br><br>
+                    
+                    <input type="submit" id="boton_enviar" value="Enviar" onclick="enviarFormulario()">
+                </form>
+            </div>
+            <div id="div_botones">
+                <input type="button" id="boton_estilo" value="Cambiar estilo" onclick="cambiarEstilo()"><br>
+                <input type="button" id="boton_no_presionar" value="NO PRESIONAR" onclick="noPresionar()">
+            </div>
+        </div>
+    </body>
+</html>
