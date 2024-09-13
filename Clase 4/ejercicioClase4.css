@@ -1,0 +1,76 @@
+:root {
+    /*los colores usados están en el js, en la función actualizarEstilo*/
+    --fondo: #fff;
+    --titulo: #fff;
+    --tablero: #fff;
+    --textos: #fff;
+    --cajas: #fff;
+    --cajas-texto: #fff;
+    --cajas-borde: #fff;
+}
+
+html,
+body {
+    font-family: Calibri Light;
+    letter-spacing: -1px; /* Reduce el espacio entre las letras */
+}
+
+.fondo {
+    background-color: var(--fondo);
+}
+
+.titulo {
+    color: var(--titulo);
+}
+
+.tablero {
+    background-color: var(--tablero);
+}
+
+.textos {
+    color: var(--textos);
+}
+
+.cajas {
+    /*en los form-control en particular, si no pongo !important, no me hace caso el css*/
+    background-color: var(--cajas) !important;
+    color: var(--cajas-texto) !important;
+    border-width: 1px;
+    border-color: var(--cajas-borde) !important;
+}
+
+#boton_enviar {
+    background-color: #4caf50;
+    color: #fff;
+    border-width: 1px;
+    border-color: #000;
+}
+
+/* Estado highlight (cuando el mouse está sobre el botón) */
+#boton_enviar:hover {
+    filter: brightness(0.9);
+}
+
+/* Estado pressed (cuando el botón está siendo presionado) */
+#boton_enviar:active {
+    filter: brightness(0.8);
+    transform: scale(0.98);
+}
+
+#boton_estilo {
+    background-color: #f4d03f;
+    color: #000;
+    border-width: 1px;
+    border-color: #000;
+}
+
+/* Estado highlight (cuando el mouse está sobre el botón) */
+#boton_estilo:hover {
+    filter: brightness(0.9);
+}
+
+/* Estado pressed (cuando el botón está siendo presionado) */
+#boton_estilo:active {
+    filter: brightness(0.8);
+    transform: scale(0.98);
+}
